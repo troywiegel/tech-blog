@@ -3,12 +3,10 @@ const blogPost = require('../models/blogPost')
 
 router.get('/', async (req, res) => {
 
-    const blogPosts = await blogPost.findAll({ raw: true })
+    const allBlogPosts = await blogPost.findAll({ raw: true })
 
-    res.render('dashboard', { allBlogPosts: blogPosts })
+    res.render('homepage', { allBlogPosts })
 
 })
-
-
 
 module.exports = router

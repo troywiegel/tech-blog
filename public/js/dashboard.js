@@ -1,5 +1,3 @@
-console.log('connected to the dashboard js file')
-
 // $('#save').on('click', function (e) {
 //     e.preventDefault()
 
