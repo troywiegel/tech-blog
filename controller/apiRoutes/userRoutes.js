@@ -5,11 +5,7 @@ const User = require('../../models/User')
 router.get('/login', async (req, res) => {
 
     try {
-        if (req.session.loggedIn) {
-            res.redirect('/')
-        } else {
-            res.status(200).render('login')
-        }
+        res.status(200).render('login', { loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(400).json(err)
     }
@@ -21,6 +17,7 @@ router.post('/signup', async (req, res) => {
     try {
         const newUserData = await User.create({
             name: req.body.name,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
         }, { raw: true })

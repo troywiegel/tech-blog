@@ -4,6 +4,7 @@ $('#signupBtn').on('click', function (e) {
 
     let userSignup = {
         name: $('#signupName').val(),
+        username: $('#singupUsername').val(),
         email: $('#signupEmail').val(),
         password: $('#signupPassword').val()
     }
