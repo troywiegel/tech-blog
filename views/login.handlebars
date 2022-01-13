@@ -1,23 +1,41 @@
-<h2>Login</h2>
-<form>
-    <p>Email</p>
-    <input id='loginEmail'></input>
-    <p>Password</p>
-    <input id='loginPassword'></input>
-    <button id='loginBtn'>Login</button>
-</form>
-
-<br>
-
-<h2>Singup</h2>
-<form>
-    <p>Name</p>
-    <input id='signupName'></input>
-    <p>Username</p>
-    <input id='singupUsername'></input>
-    <p>Email</p>
-    <input id='signupEmail'></input>
-    <p>Password</p>
-    <input id='signupPassword'></input>
-    <button id='signupBtn'>Signup</button>
-</form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <h2>Login</h2>
+            <form>
+                <div class="form-group">
+                    <label for="loginEmail">Email address</label>
+                    <input class="form-control" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary" id="loginBtn">Submit</button>
+            </form>
+        </div>
+    
+        <div class="col-sm-12 col-md-6 col-lg-6">
+            <h2>Signup</h2>
+            <form>
+                <div class="form-group">
+                    <label for="signupName">Name</label>
+                    <input class="form-control" id="signupName" aria-describedby="emailHelp" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="signupUsername">Username</label>
+                    <input class="form-control" id="signupUsername" aria-describedby="emailHelp" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email address</label>
+                    <input class="form-control" id="signupEmail" aria-describedby="emailHelp" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" class="form-control" id="signupPassword" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary" id="signupBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
