@@ -1,23 +1,25 @@
-// $('#save').on('click', function (e) {
-//     e.preventDefault()
+$('#newBlogSaveBtn').on('click', function (e) {
 
-//     const newTodo = {
-//         title: $('#title').val(),
-//         description: $('#description').val()
-//     }
+    e.preventDefault()
 
-//     fetch('/api/save', {
-//         method: 'POST',
-//         headers: {
-//             'Accept': 'application/json',
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(newTodo)
-//     }).then(function (response) {
-//         return response.json()
-//     }).then(function (data) {
-//         console.log('data from backend after fetch', data)
+    const newBlogPost = {
+        title: $('#newPostTitle').val(),
+        body: $('#newPostBody').val(),
+        user_id: req.session.user_id
+    }
 
-//         window.location.reload()
-//     })
-// })
+    fetch('/dashboard', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newBlogPost)
+    }).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+        console.log('data from backend after fetch', data)
+
+        window.location.reload()
+    })
+})

@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const User = require('../../models/User')
+const User = require('../models/User')
 
 // GET login route
 router.get('/login', async (req, res) => {
@@ -27,7 +27,7 @@ router.post('/signup', async (req, res) => {
             res.status(200).json({ message: 'Thanks for signing up!' })
         })
     } catch (err) {
-        res.status(400).json(err)
+        res.status(500).json(err)
     }
 })
 
@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
         })
 
     } catch (err) {
-        res.status(400).json(err)
+        res.status(500).json(err)
     }
 })
 

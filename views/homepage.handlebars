@@ -1,10 +1,14 @@
-<h1>Homepage</h1>
-
-<br>
-
-{{#each allBlogPosts}}
-
-<h2>{{title}}</h2>
-<p>{{createdAt}}</p>
-
-{{/each}}
+<div class="d-flex container-fluid justify-content-center">
+    <div class="column col-9">
+        {{#each allBlogPosts}}
+        <div class="card col my-3 bg-light">
+            <div class="card-body bg-light text-dark">
+                <h3 class="card-title">{{title}}</h3>
+                <h5 class="card-subtitle mb-2">Posted: {{format_date createdAt}}</h5>
+                <br>
+                <h6 name={{id}} class="card-subtitle mb-2 readMore">Check out the post here!</h6>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

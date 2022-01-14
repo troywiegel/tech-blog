@@ -1,0 +1,15 @@
+<h1>Blog Post</h1>
+
+<div class="d-flex container-fluid justify-content-center">
+    <div class="column col-9">
+        <div class="card col bg-light">
+            <div class="card-body bg-light text-dark">
+                <h3 class="card-title">{{onePost.title}}</h3>
+                <h4 class="card-subtitle">{{onePost.body}}</h4>
+                <br><br>
+                {{!-- <h5 class="card-subtitle">Created by: {{onePost.user.username}}</h5> --}}
+                <h5 class="card-subtitle">Posted on: {{format_date onePost.createdAt}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
