@@ -9,11 +9,11 @@ router.get('/', withAuth, async (req, res) => {
         const myBlogPosts = await blogPost.findAll({
             raw: true,
             where: {
-                user_id: req.session.id
+                user_id: 1
             }
         })
         console.log('======MYBLOGPOSTS========', myBlogPosts)
-        res.status(200).render('dashboard', { loggedIn: req.session.loggedIn })
+        res.status(200).render('dashboard', { myBlogPosts, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(400).json(err)
     }
