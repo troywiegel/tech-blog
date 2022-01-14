@@ -12,6 +12,9 @@ router.get('/', withAuth, async (req, res) => {
                 user_id: req.session.user_id
             }
         })
+        if (!myBlogPosts) {
+            return
+        }
         res.status(200).render('dashboard', { myBlogPosts, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(400).json(err)

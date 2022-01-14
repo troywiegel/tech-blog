@@ -20,4 +20,16 @@ router.get('/:id', withAuth, async (req, res) => {
     }
 })
 
+router.delete('/delete/:id', withAuth, async (req, res) => {
+    console.log('DELETE ROUTE SMACKED', req.params.id)
+
+    const deleted = await blogPost.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+
+    res.json(deleted)
+})
+
 module.exports = router
