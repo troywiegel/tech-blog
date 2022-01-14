@@ -4,9 +4,9 @@
             <div class="card-body bg-light text-dark">
                 <h3 class="card-title">{{onePost.title}}</h3>
                 <h4 class="card-subtitle">{{onePost.body}}</h4>
-                <br><br>
                 {{!-- <h5 class="card-subtitle">Created by: {{onePost.user.username}}</h5> --}}
-                <h5 class="card-subtitle">Posted on: {{format_date onePost.createdAt}}</h5>
+                <h5 class="card-text">Posted on: {{format_date onePost.createdAt}}</h5>
+                <a name={{onePost.id}} id="commentPost" class="btn btn-primary text-white float-right">Add Comment</a>
             </div>
         </div>
     </div>
