@@ -1,11 +1,10 @@
-$('#newBlogSaveBtn').on('click', function (e) {
+$('#newPostSaveBtn').on('click', function (e) {
 
     e.preventDefault()
 
     const newBlogPost = {
-        title: $('#newPostTitle').val(),
-        body: $('#newPostBody').val(),
-        user_id: req.session.user_id
+        title: $('#newPostTitle').val().trim(),
+        body: $('#newPostBody').val().trim(),
     }
 
     fetch('/dashboard', {
@@ -18,8 +17,6 @@ $('#newBlogSaveBtn').on('click', function (e) {
     }).then(function (response) {
         return response.json()
     }).then(function (data) {
-        console.log('data from backend after fetch', data)
-
         window.location.reload()
     })
 })

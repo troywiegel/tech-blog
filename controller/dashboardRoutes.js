@@ -9,10 +9,9 @@ router.get('/', withAuth, async (req, res) => {
         const myBlogPosts = await blogPost.findAll({
             raw: true,
             where: {
-                user_id: 1
+                user_id: req.session.user_id
             }
         })
-        console.log('======MYBLOGPOSTS========', myBlogPosts)
         res.status(200).render('dashboard', { myBlogPosts, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(400).json(err)
@@ -22,7 +21,10 @@ router.get('/', withAuth, async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
 
     try {
-        const createBlogPost = await blogPost.create(req.body)
+        const createBlogPost = await blogPost.create({
+            ...req.body,
+            user_id: req.session.user_id
+        })
         res.status(200).json(createBlogPost)
     } catch (err) {
         res.status(500).json(err)
