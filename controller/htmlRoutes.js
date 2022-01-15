@@ -1,14 +1,16 @@
 const router = require('express').Router()
-const blogPost = require('../models/blogPost')
+const { BlogPost, User } = require('../models')
 
 router.get('/', async (req, res) => {
 
     try {
-        const allBlogPosts = await blogPost.findAll({ raw: true })
-
+        const blogPosts = await BlogPost.findAll({
+            include: [{ model: User, attributes: ['username'] }]
+        })
+        const allBlogPosts = blogPosts.map((data) => data.get({ plain: true }))
         res.status(200).render('homepage', { allBlogPosts, loggedIn: req.session.loggedIn })
     } catch (err) {
-        res.status(400).json(err)
+        res.status(500).json(err)
     }
 })
 

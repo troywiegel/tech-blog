@@ -1,4 +1,4 @@
-const blogPost = require('../models/blogPost')
+const BlogPost = require('../models/BlogPost')
 
 const blogData = [{
     title: 'Test Title 1',
@@ -16,6 +16,6 @@ const blogData = [{
     user_id: 1
 }]
 
-const seedBlogPost = () => blogPost.bulkCreate(blogData)
+const seedBlogPost = () => BlogPost.bulkCreate(blogData)
 
 module.exports = seedBlogPost
