@@ -6,16 +6,14 @@ const withAuth = require('../utils/auth')
 router.get('/:id', withAuth, async (req, res) => {
 
     try {
-        const onePost = await BlogPost.findByPk(req.params.id, {
-            raw: true,
-            // include: [{ 
-            //     model: User,
-            //     attributes: ['username']
-            //  }]
+        const oneBlogPost = await BlogPost.findAll({
+            where: { id: req.params.id },
+            include: [{ model: User, attributes: ['username'] }]
         })
-
+        const onePost = oneBlogPost.map((data) => data.get({ plain: true }))
         res.status(200).render('blogpost', { onePost, loggedIn: req.session.loggedIn })
     } catch (err) {
+        console.log('===errr====', err)
         res.status(400).json(err)
     }
 })
@@ -38,9 +36,7 @@ router.delete('/delete/:id', withAuth, async (req, res) => {
     console.log('DELETE ROUTE SMACKED', req.params.id)
 
     const deleted = await BlogPost.destroy({
-        where: {
-            id: req.params.id
-        }
+        where: { id: req.params.id }
     })
 
     res.json(deleted)

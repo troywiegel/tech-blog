@@ -5,15 +5,11 @@ const withAuth = require('../utils/auth')
 router.get('/', withAuth, async (req, res) => {
 
     try {
-        const myBlogPosts = await BlogPost.findAll({
-            raw: true,
-            where: {
-                user_id: req.session.user_id
-            }
+        const blogPosts = await BlogPost.findAll({
+            where: { user_id: req.session.user_id },
+            include: [{ model: User, attributes: ['username'] }]
         })
-        if (!myBlogPosts) {
-            return
-        }
+        const myBlogPosts = blogPosts.map((data) => data.get({ plain: true }))
         res.status(200).render('dashboard', { myBlogPosts, loggedIn: req.session.loggedIn })
     } catch (err) {
         res.status(500).json(err)
