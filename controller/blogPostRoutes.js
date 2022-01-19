@@ -1,6 +1,5 @@
 const router = require('express').Router()
-const { BlogPost, User, Comment } = require('../models')
-const { findAll } = require('../models/User')
+const { BlogPost, User } = require('../models/index')
 const withAuth = require('../utils/auth')
 
 // GET one blogpost route
