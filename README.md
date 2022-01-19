@@ -8,6 +8,7 @@ This is a CMS style blog where one can come to read and blog about anything tech
 
 [Tech Blog 10000](https://tech-blog-10000.herokuapp.com/)
 
+![techblog](https://user-images.githubusercontent.com/37552547/150039483-57383322-1124-4e43-84ad-dea1fd0aaf48.png)
 <br><br>
                         
 ## Table of Contents
