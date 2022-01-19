@@ -7,7 +7,7 @@ $('#newPostSaveBtn').on('click', function (e) {
         body: $('#newPostBody').val().trim(),
     }
 
-    fetch('/dashboard', {
+    fetch('/dashboard/newBlogpost', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -17,14 +17,8 @@ $('#newPostSaveBtn').on('click', function (e) {
     }).then(function (response) {
         return response.json()
     }).then(function (data) {
-        window.location.reload()
+        window.location.replace('/dashboard')
     })
-})
-
-$('.editPost').on('click', function (e) {
-
-    console.log('edit button clicked!')
-
 })
 
 $('.deletePost').on('click', function (e) {

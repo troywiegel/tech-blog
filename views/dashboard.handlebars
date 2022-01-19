@@ -1,14 +1,11 @@
-<h1>Dashboard</h1>
-
-<h2>New Blog Post</h2>
-<form>
-    <p>Title</p>
-    <input id='newPostTitle'></input>
-    <p>Content</p>
-    <input id='newPostBody'></input>
-    <button id='newPostSaveBtn'>Save</button>
-</form>
-
+<div class="d-flex justify-content-center">
+    <h1>Dashboard | All the blogs you have posted!</h1>
+</div>
+<br>
+<div class="d-flex justify-content-center">
+    <a id="newPost" class="btn btn-primary text-white">Add a new blogpost!</a>
+</div>
+<br>
 <div class="d-flex container-fluid justify-content-center">
     <div class="column col-9">
         {{#each myBlogPosts}}
@@ -20,7 +17,6 @@
                 <h5 class="card-subtitle">Created by: {{user.username}}</h5>
                 <h5 class="card-subtitle">Posted on: {{format_date createdAt}}</h5>
                 <div class="float-right">
-                    <a name={{id}} class="btn btn-primary text-white editPost">Edit</a>
                     <a name={{id}} class="btn btn-primary text-white deletePost">Delete</a>
                 </div>
             </div>

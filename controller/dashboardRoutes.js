@@ -16,7 +16,16 @@ router.get('/', withAuth, async (req, res) => {
     }
 })
 
-router.post('/', withAuth, async (req, res) => {
+router.get('/newBlogpost', async (req, res) => {
+
+    try {
+        res.status(200).render('newBlogpost', { loggedIn: req.session.loggedIn })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+router.post('/newBlogpost', withAuth, async (req, res) => {
 
     try {
         const createBlogPost = await BlogPost.create({
